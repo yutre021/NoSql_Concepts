@@ -2494,7 +2494,7 @@ Aqui estão algumas afirmações que esclarecem as capacidades e característica
 
 
 
-![DataCamp Image](graph_no_Sql.png)
+![DataCamp Image](src/graph_no_Sql.png)
 
 
 Graph databases represent a unique and powerful category of NoSQL databases designed to efficiently manage highly interconnected data. Unlike traditional databases that might struggle with complex relationships, graph databases prioritize the connections between data points.

@@ -952,17 +952,26 @@ Uma coleção serve como um agrupamento lógico de documentos, desempenhando um 
 ### JSON FORMAT
 
 ```json
-{ "user_id": 512, "name": "Carol", "last_name": "Harper", "email": "
-carolharper@datazy.com
-", "address": { "street": "123 Sesame Street", "city": "New York City", "state": "New York", "country": "USA" }, "hobbies": [ "hiking", "painting" ] }
+{
+   "user_id": 512,
+   "name": "Carol",
+   "last_name": "Harper",
+   "email": "carolharper@datazy.com",
+   "address": { "street": "123 Sesame Street", "city": "New York City", "state": "New York", "country": "USA" },
+   "hobbies": [ "hiking", "painting" ]
+}
 ```
 
 ### Documents - queries
 
 ```json
-{ "user_id": 512, "name": "Carol", "last_name": "Harper", "email": "
-carolharper@datazy.com
-", "address": { "street": "123 Sesame Street", "city": "New York City", "state": "New York", "country": "USA" }, "hobbies": [ "hiking", "painting" ] }
+{
+   "user_id": 512,
+   "name": "Carol",
+   "last_name": "Harper",
+   "email": "carolharper@datazy.com",
+    "address": { "street": "123 Sesame Street", "city": "New York City", "state": "New York", "country": "USA" },
+    "hobbies": [ "hiking", "painting" ] }
 ```
 
 * All the users who live in New York and likehiking
@@ -972,9 +981,14 @@ carolharper@datazy.com
 ### Documents - polymorphic model
 
 ```json
-{ "user_id": 512, "name": "Carol", "last_name": "Harper", "email": "
-carolharper@datazy.com
-", "address": { "street": "123 Sesame Street", "city": "New York City", "state": "New York", "country": "USA" }, "hobbies": [ "hiking", "painting" ] }
+{
+   "user_id": 512,
+   "name": "Carol",
+   "last_name": "Harper",
+   "email": "carolharper@datazy.com",
+   "address": { "street": "123 Sesame Street", "city": "New York City", "state": "New York", "country": "USA" },
+   "hobbies": [ "hiking", "painting" ]
+}
 ```
 
 ```json

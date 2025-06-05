@@ -948,3 +948,43 @@ Uma coleção serve como um agrupamento lógico de documentos, desempenhando um 
     * **Explicação:** Tipicamente, todos os documentos dentro de uma única coleção representam o mesmo "tipo" conceitual de entidade. Por exemplo, uma coleção de "usuários" conteria documentos que descrevem vários usuários, e uma coleção de "produtos" conteria documentos que descrevem diferentes produtos. Isso proporciona clareza organizacional.
 * **Eles são análogos a tabelas em um banco de dados relacional.**
     * **Explicação:** Essa analogia ajuda a conectar o entendimento para aqueles familiarizados com bancos de dados relacionais. Assim como uma tabela em um banco de dados relacional agrupa linhas semelhantes, uma coleção agrupa documentos semelhantes. No entanto, ao contrário de uma tabela, os documentos dentro de uma coleção podem ter estruturas variadas (sem esquema ou com esquema flexível).
+ 
+### JSON FORMAT
+
+```json
+{ "user_id": 512, "name": "Carol", "last_name": "Harper", "email": "
+carolharper@datazy.com
+", "address": { "street": "123 Sesame Street", "city": "New York City", "state": "New York", "country": "USA" }, "hobbies": [ "hiking", "painting" ] }
+```
+
+### Documents - queries
+
+```json
+{ "user_id": 512, "name": "Carol", "last_name": "Harper", "email": "
+carolharper@datazy.com
+", "address": { "street": "123 Sesame Street", "city": "New York City", "state": "New York", "country": "USA" }, "hobbies": [ "hiking", "painting" ] }
+```
+
+* All the users who live in New York and likehiking
+* All the users older than 40
+* User's data by user_id
+
+### Documents - polymorphic model
+
+```json
+{ "user_id": 512, "name": "Carol", "last_name": "Harper", "email": "
+carolharper@datazy.com
+", "address": { "street": "123 Sesame Street", "city": "New York City", "state": "New York", "country": "USA" }, "hobbies": [ "hiking", "painting" ] }
+```
+
+```json
+{
+   "user_id": 513,
+   "name":
+   "Benjamin",
+   "last_name": "Lieberman",
+   "email": "benjaminlieberman@datazy.com",
+   "date_of_birth": "07/04/1984",
+   "hobbies": [ "reading" ]
+}
+``` 

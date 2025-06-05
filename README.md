@@ -387,3 +387,64 @@ Esses sistemas são projetados para escalabilidade horizontal, lidando eficiente
 
 Este paradigma chave-valor oferece simplicidade, alto desempenho para buscas diretas e flexibilidade no tipo de dados que podem ser armazenados como valor, tornando-o adequado para uma ampla gama de aplicações, especialmente aquelas que exigem alta escalabilidade e disponibilidade.
 
+
+
+# Limitations of Key-Value Stores (Limitações de Armazenamentos Chave-Valor)
+
+While key-value stores offer significant advantages in simplicity, speed, and scalability, they also come with certain limitations, primarily concerning their query capabilities. Understanding these constraints is crucial for choosing the right database for a specific use case.
+
+---
+
+## English Version
+
+### Primary Limitations
+
+The fundamental design of key-value stores, focused on fast direct lookups, inherently limits their flexibility for complex data retrieval.
+
+* **Just search by key.**
+    * **Explanation:** The most basic and efficient way to retrieve data from a key-value store is by providing its unique key. This direct access mechanism is incredibly fast but poses a challenge if you need to find data based on its content rather than its identifier.
+    * **Problem if we don't know the key:** If the specific key for a piece of information is unknown, or if you need to find data based on criteria within the values, a simple key-value store cannot perform this operation directly. This necessitates external indexing or a full scan, which can be inefficient for large datasets.
+
+### Evolving Functionalities and Remaining Challenges
+
+To address the limitations of strict key-based searching, some key-value databases have evolved to offer enhanced functionalities:
+
+* **Some key-value databases added functionalities:**
+    * **Search by value:** Certain key-value stores now allow you to search for data based on the content of the values themselves, not just the key.
+    * **Add secondary indexes:** This feature enables creating additional indexes on specific attributes within the values, allowing for efficient searches on those attributes, similar to indexes in relational databases.
+    * **Search by several keys simultaneously:** Some implementations support querying multiple keys in a single operation, improving efficiency for fetching related data.
+
+* **Not complex queries.**
+    * **Explanation:** Despite these added functionalities, key-value stores are generally *not* designed for complex analytical queries that involve sophisticated joins across multiple data types or aggregations that span vast datasets. Such operations are typically better handled by relational databases or specialized analytical data stores. The core strength remains fast, direct access via keys.
+
+---
+
+## Versão em Português
+
+# Limitações de Armazenamentos Chave-Valor
+
+Embora os armazenamentos chave-valor ofereçam vantagens significativas em simplicidade, velocidade e escalabilidade, eles também vêm com certas limitações, principalmente no que diz respeito às suas capacidades de consulta. Compreender essas restrições é crucial para escolher o banco de dados certo para um caso de uso específico.
+
+---
+
+## Versão em Português
+
+### Limitações Principais
+
+O design fundamental dos armazenamentos chave-valor, focado em buscas diretas rápidas, limita inerentemente sua flexibilidade para recuperação de dados complexa.
+
+* **Apenas busca por chave.**
+    * **Explicação:** A maneira mais básica e eficiente de recuperar dados de um armazenamento chave-valor é fornecendo sua chave única. Este mecanismo de acesso direto é incrivelmente rápido, mas representa um desafio se você precisar encontrar dados com base em seu conteúdo, em vez de seu identificador.
+    * **Problema se não soubermos a chave:** Se a chave específica para uma informação é desconhecida, ou se você precisa encontrar dados com base em critérios dentro dos valores, um armazenamento chave-valor simples não pode realizar essa operação diretamente. Isso exige indexação externa ou uma varredura completa, o que pode ser ineficiente para grandes conjuntos de dados.
+
+### Funcionalidades em Evolução e Desafios Restantes
+
+Para abordar as limitações da busca estrita baseada em chave, alguns bancos de dados chave-valor evoluíram para oferecer funcionalidades aprimoradas:
+
+* **Alguns bancos de dados chave-valor adicionaram funcionalidades:**
+    * **Busca por valor:** Certos armazenamentos chave-valor agora permitem que você busque dados com base no conteúdo dos próprios valores, e não apenas na chave.
+    * **Adicionar índices secundários:** Este recurso permite criar índices adicionais em atributos específicos dentro dos valores, permitindo buscas eficientes nesses atributos, semelhante aos índices em bancos de dados relacionais.
+    * **Buscar por várias chaves simultaneamente:** Algumas implementações suportam a consulta de múltiplas chaves em uma única operação, melhorando a eficiência para buscar dados relacionados.
+
+* **Não há consultas complexas.**
+    * **Explicação:** Apesar dessas funcionalidades adicionais, os armazenamentos chave-valor geralmente *não* são projetados para consultas analíticas complexas que envolvem junções sofisticadas entre vários tipos de dados ou agregações que abrangem vastos conjuntos de dados. Tais operações são tipicamente melhor tratadas por bancos de dados relacionais ou armazenamentos de dados analíticos especializados. A força central permanece no acesso rápido e direto via chaves.

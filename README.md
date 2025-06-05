@@ -1502,3 +1502,70 @@ Bancos de dados de documentos são geralmente menos adequados para aplicações 
     * **Explicação:** Se uma aplicação lida com dados que se encaixam naturalmente em um modelo tabular altamente estruturado e imutável (ex: entradas de livro-razão financeiro, registros de funcionários com atributos fixos), um banco de dados relacional com sua forte imposição de esquema e integridade referencial seria tipicamente uma escolha mais robusta e eficiente. Bancos de dados de documentos oferecem flexibilidade, mas isso significa que a validação de esquema é transferida para a camada da aplicação, o que pode ser mais complexo para dados altamente rígidos.
 * **As informações de uma transação bancária que precisam ser validadas no nível do banco de dados caso o valor monetário seja nulo ou não seja um número inteiro.**
     * **Explicação:** Este cenário destaca a necessidade de estrita integridade de dados e garantias transacionais, frequentemente associadas às propriedades ACID. Transações bancárias exigem altos níveis de consistência e validação *no nível do banco de dados* para prevenir erros (ex: garantir que um valor seja sempre um número válido e nunca nulo). Embora alguns bancos de dados NoSQL ofereçam propriedades ACID parciais, bancos de dados relacionais tradicionais são inerentemente projetados para e se destacam em impor tais restrições rígidas e garantir a validade dos dados através de tipagem forte e gerenciamento de transações, tornando-os mais adequados para dados financeiros críticos.
+
+
+# MongoDB Features: A True/False Assessment (Características do MongoDB: Uma Avaliação Verdadeiro/Falso)
+
+MongoDB is a popular open-source document database, a leading example of a NoSQL system. It is known for its flexibility, scalability, and powerful query capabilities. This document clarifies some key features of MongoDB by assessing various statements as true or false.
+
+---
+
+## English Version
+
+### Understanding MongoDB Features: True or False Statements
+
+Here are some statements clarifying the capabilities and characteristics of MongoDB:
+
+### True Statements:
+
+1.  **MongoDB is frequently used in single-view applications.**
+    * **Explanation:** This is **True**. Single-view applications (also known as "single source of truth" or "360-degree view" applications) aim to consolidate various data points about an entity (like a customer or product) into one accessible place. MongoDB's document model, which allows embedding related data, is highly suitable for this. You can store a complete customer profile, including orders, interactions, and preferences, in a single document, making it efficient to retrieve all relevant information with one query.
+
+2.  **MongoDB has its own query language.**
+    * **Explanation:** This is **True**. MongoDB uses MongoDB Query Language (MQL), which is a rich, JSON-like query language. MQL provides extensive functionality for querying, filtering, sorting, aggregating, and analyzing data within documents and collections, offering powerful capabilities that go beyond simple key-value lookups.
+
+### False Statements:
+
+1.  **Unlike relational databases, MongoDB doesn't support ACID transactions.**
+    * **Explanation:** This is **False**. While historically, ACID transactions were a strong differentiator for relational databases, **MongoDB has supported multi-document ACID transactions since version 4.0**. This means it can guarantee atomicity, consistency, isolation, and durability across operations involving multiple documents, collections, and even shards, providing strong data integrity for complex business logic, similar to relational databases.
+
+2.  **MongoDB stores the data in XML format.**
+    * **Explanation:** This is **False**. MongoDB stores data in **BSON (Binary JSON)** format. BSON is a binary-encoded serialization of JSON-like documents. While it's conceptually similar to JSON (and compatible with JSON), it's a binary format optimized for storage efficiency and faster parsing compared to plain text JSON or XML. Documents can be represented in JSON for human readability, but they are stored as BSON.
+
+3.  **MongoDB scales horizontally by adding more memory to the servers.**
+    * **Explanation:** This is **False**. Adding more memory to servers is a form of *vertical scaling* (scaling up). MongoDB scales horizontally by adding more *servers* to a cluster (sharding). Sharding distributes data across multiple machines, allowing the database to handle larger datasets and higher throughput by distributing the load, which is a key advantage over traditional relational databases.
+
+---
+
+## Versão em Português
+
+# Características do MongoDB: Uma Avaliação Verdadeiro/Falso
+
+MongoDB é um popular banco de dados de documentos de código aberto, um exemplo líder de um sistema NoSQL. É conhecido por sua flexibilidade, escalabilidade e poderosas capacidades de consulta. Este documento esclarece algumas características chave do MongoDB avaliando várias afirmações como verdadeiras ou falsas.
+
+---
+
+## Versão em Português
+
+### Compreendendo as Características do MongoDB: Afirmações Verdadeiras ou Falsas
+
+Aqui estão algumas afirmações que esclarecem as capacidades e características do MongoDB:
+
+### Afirmações Verdadeiras:
+
+1.  **MongoDB é frequentemente usado em aplicações de visão única.**
+    * **Explicação:** Esta afirmação é **Verdadeira**. Aplicações de visão única (também conhecidas como "fonte única de verdade" ou "visão 360 graus") visam consolidar vários pontos de dados sobre uma entidade (como um cliente ou produto) em um único local acessível. O modelo de documento do MongoDB, que permite a incorporação de dados relacionados, é altamente adequado para isso. Você pode armazenar um perfil completo de cliente, incluindo pedidos, interações e preferências, em um único documento, tornando eficiente a recuperação de todas as informações relevantes com uma única consulta.
+
+2.  **MongoDB possui sua própria linguagem de consulta.**
+    * **Explicação:** Esta afirmação é **Verdadeira**. MongoDB utiliza a Linguagem de Consulta MongoDB (MQL), que é uma linguagem de consulta rica e semelhante a JSON. A MQL fornece ampla funcionalidade para consultar, filtrar, classificar, agregar e analisar dados dentro de documentos e e coleções, oferecendo capacidades poderosas que vão além de simples buscas chave-valor.
+
+### Afirmações Falsas:
+
+1.  **Ao contrário dos bancos de dados relacionais, o MongoDB não suporta transações ACID.**
+    * **Explicação:** Esta afirmação é **Falsa**. Embora historicamente, as transações ACID fossem um forte diferencial para bancos de dados relacionais, o **MongoDB suporta transações ACID multi-documento desde a versão 4.0**. Isso significa que ele pode garantir atomicidade, consistência, isolamento e durabilidade em operações que envolvem múltiplos documentos, coleções e até shards, fornecendo forte integridade de dados para lógicas de negócio complexas, semelhante aos bancos de dados relacionais.
+
+2.  **MongoDB armazena os dados em formato XML.**
+    * **Explicação:** Esta afirmação é **Falsa**. MongoDB armazena dados no formato **BSON (Binary JSON)**. BSON é uma serialização de documentos semelhantes a JSON codificada em binário. Embora seja conceitualmente semelhante a JSON (e compatível com JSON), é um formato binário otimizado para eficiência de armazenamento e análise mais rápida em comparação com JSON de texto puro ou XML. Os documentos podem ser representados em JSON para legibilidade humana, mas são armazenados como BSON.
+
+3.  **MongoDB escala horizontalmente adicionando mais memória aos servidores.**
+    * **Explicação:** Esta afirmação é **Falsa**. Adicionar mais memória aos servidores é uma forma de *escalonamento vertical* (scaling up). MongoDB escala horizontalmente adicionando mais *servidores* a um cluster (sharding). O sharding distribui os dados por múltiplas máquinas, permitindo que o banco de dados lide com conjuntos de dados maiores e maior throughput, distribuindo a carga, o que é uma vantagem chave sobre os bancos de dados relacionais tradicionais.

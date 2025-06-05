@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/a9320bcc-ca86-43e5-85ab-74bffd10332a)# NoSql_Concepts
+# NoSql_Concepts
 The Concepts of NoSql
 
 # NoSQL vs. Relational Databases: A Comparison (NoSQL vs. Bancos de Dados Relacionais: Uma Comparação)

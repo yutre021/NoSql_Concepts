@@ -125,3 +125,51 @@ Um 'valor' no armazenamento de dados é uma peça real de informação que está
     * **Explicação:** As operações primárias realizadas em valores giram em torno de suas chaves.
         * **Recuperar (Ler):** Para obter um valor, você tipicamente fornece sua chave associada.
         * **Definir (Criar/Atualizar):** Para armazen
+
+# Data Size Restrictions (Restrições de Tamanho de Dados)
+
+Understanding data size restrictions is crucial in various aspects of software development and data management, particularly when dealing with storage, transmission, and processing.
+
+---
+
+## English Version
+
+### What are Data Size Restrictions?
+
+Data size restrictions refer to limits on the amount of data that can be stored in a single unit, transmitted in a single message, or processed within a given operation or system. These limits can be imposed by various factors:
+
+* **Database Systems:**
+    * Many database systems (especially key-value stores or document databases) may have limits on the maximum size of a single 'value' or document that can be stored in a record.
+    * Relational database columns might have character limits (e.g., `VARCHAR(255)`), or limits on blob/text fields.
+* **APIs and Protocols:**
+    * HTTP requests/responses can have maximum body sizes.
+    * Specific API endpoints might have limits on the size of JSON payloads they accept.
+    * Messaging queues (like Kafka topics) may have maximum message size configurations.
+* **File Systems:**
+    * File systems have limits on the maximum file size or partition size.
+* **Memory and Processing:**
+    * Even if storage allows large data, the amount of memory available for processing or transmitting that data at runtime can impose practical size restrictions.
+
+**Implications:** Ignoring size restrictions can lead to various issues, including data truncation, processing errors, performance degradation, network timeouts, or complete system failures. Developers and architects must design systems with these limitations in mind, potentially opting for different data models (e.g., storing large files in object storage and links in the database) or processing strategies (e.g., streaming large data).
+
+---
+
+## Versão em Português
+
+### O que são Restrições de Tamanho de Dados?
+
+Restrições de tamanho de dados referem-se a limites na quantidade de dados que podem ser armazenados em uma única unidade, transmitidos em uma única mensagem ou processados dentro de uma determinada operação ou sistema. Esses limites podem ser impostos por vários fatores:
+
+* **Sistemas de Banco de Dados:**
+    * Muitos sistemas de banco de dados (especialmente armazenamentos chave-valor ou bancos de dados de documentos) podem ter limites no tamanho máximo de um único 'valor' ou documento que pode ser armazenado em um registro.
+    * Colunas de bancos de dados relacionais podem ter limites de caracteres (ex: `VARCHAR(255)`) ou limites em campos de blob/texto.
+* **APIs e Protocolos:**
+    * Requisições/respostas HTTP podem ter tamanhos máximos de corpo.
+    * Endpoints de API específicos podem ter limites no tamanho dos payloads JSON que aceitam.
+    * Filas de mensagens (como tópicos Kafka) podem ter configurações de tamanho máximo de mensagem.
+* **Sistemas de Arquivos:**
+    * Sistemas de arquivos possuem limites no tamanho máximo de arquivo ou no tamanho da partição.
+* **Memória e Processamento:**
+    * Mesmo que o armazenamento permita grandes volumes de dados, a quantidade de memória disponível para processar ou transmitir esses dados em tempo de execução pode impor restrições práticas de tamanho.
+
+**Implicações:** Ignorar as restrições de tamanho pode levar a vários problemas, incluindo truncamento de dados, erros de processamento, degradação de desempenho, timeouts de rede ou falhas completas do sistema. Desenvolvedores e arquitetos devem projetar sistemas com essas limitações em mente, optando potencialmente por diferentes modelos de dados (ex: armazenar arquivos grandes em armazenamento de objetos e links no banco de dados) ou estratégias de processamento (ex: streaming de grandes volumes de dados).

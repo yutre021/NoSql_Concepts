@@ -2488,3 +2488,58 @@ Aqui estão algumas afirmações que esclarecem as capacidades e característica
 
 3.  **CQL significa Cassandra Quality Layer.**
     * **Explicação:** Esta afirmação é **Falsa**. **CQL significa Cassandra Query Language.** É uma linguagem semelhante a SQL usada para interagir com bancos de dados Cassandra, permitindo aos usuários definir esquemas (semelhante a DDL), inserir dados (DML) e consultar dados. Ela foi projetada para se assemelhar ao SQL para torná-la mais familiar para desenvolvedores vindos de backgrounds relacionais, simplificando a interação com o Cassandra.
+
+
+# Graph Databases: Overview (Bancos de Dados de Grafo: Visão Geral)
+
+
+
+![DataCamp Image](graph_no_Sql.png)
+
+
+Graph databases represent a unique and powerful category of NoSQL databases designed to efficiently manage highly interconnected data. Unlike traditional databases that might struggle with complex relationships, graph databases prioritize the connections between data points.
+
+---
+
+## English Version
+
+### Core Principles of Graph Databases
+
+Graph databases are built on a specialized model that emphasizes relationships, making them ideal for applications where understanding connections is crucial.
+
+* **Treat data and its relationships with the same importance.**
+    * **Explanation:** In a graph database, data (nodes) and the relationships between them (edges) are stored as first-class citizens. This means that a relationship is not just a pointer or a foreign key; it's a distinct entity with its own properties, allowing for highly efficient traversal and analysis of connections. This contrasts with relational databases where relationships are implicitly defined through joins.
+
+* **Based on graph theory.**
+    * **Explanation:** The fundamental concepts underpinning graph databases are derived from graph theory, a branch of mathematics.
+    * **Branch of mathematics:** Graph theory is a field of study that focuses on graphs, which are mathematical structures used to model pairwise relations between objects.
+    * **Studies graphs for modeling the relationships between objects:** This mathematical foundation provides the theoretical framework for how graph databases represent, store, and query connected data. Nodes represent entities (e.g., people, places, products), and edges represent the relationships between them (e.g., "friend of," "located in," "buys").
+
+This intrinsic focus on relationships allows graph databases to perform complex queries involving many connections (e.g., finding "friends of friends") with significantly higher performance than relational databases trying to achieve the same with numerous joins.
+
+---
+
+## Versão em Português
+
+# Bancos de Dados de Grafo: Visão Geral
+
+Bancos de dados de grafo representam uma categoria única e poderosa de bancos de dados NoSQL projetados para gerenciar eficientemente dados altamente interconectados. Ao contrário dos bancos de dados tradicionais que podem ter dificuldades com relacionamentos complexos, os bancos de dados de grafo priorizam as conexões entre os pontos de dados.
+
+---
+
+## Versão em Português
+
+### Princípios Fundamentais dos Bancos de Dados de Grafo
+
+Bancos de dados de grafo são construídos sobre um modelo especializado que enfatiza os relacionamentos, tornando-os ideais para aplicações onde a compreensão das conexões é crucial.
+
+* **Tratam dados e seus relacionamentos com a mesma importância.**
+    * **Explicação:** Em um banco de dados de grafo, os dados (nós) e os relacionamentos entre eles (arestas) são armazenados como cidadãos de primeira classe. Isso significa que um relacionamento não é apenas um ponteiro ou uma chave estrangeira; é uma entidade distinta com suas próprias propriedades, permitindo uma travessia e análise de conexões altamente eficientes. Isso contrasta com os bancos de dados relacionais, onde os relacionamentos são definidos implicitamente por meio de junções.
+
+* **Baseados na teoria dos grafos.**
+    * **Explicação:** Os conceitos fundamentais que sustentam os bancos de dados de grafo são derivados da teoria dos grafos, um ramo da matemática.
+    * **Ramo da matemática:** A teoria dos grafos é um campo de estudo que se concentra em grafos, que são estruturas matemáticas usadas para modelar relações entre pares de objetos.
+    * **Estuda grafos para modelar os relacionamentos entre objetos:** Essa base matemática fornece a estrutura teórica para como os bancos de dados de grafo representam, armazenam e consultam dados conectados. Os nós representam entidades (ex: pessoas, lugares, produtos) e as arestas representam os relacionamentos entre elas (ex: "amigo de", "localizado em", "compra").
+
+Esse foco intrínseco nos relacionamentos permite que os bancos de dados de grafo realizem consultas complexas envolvendo muitas conexões (ex: encontrar "amigos de amigos") com um desempenho significativamente maior do que os bancos de dados relacionais que tentam o mesmo com inúmeras junções.
+

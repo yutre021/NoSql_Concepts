@@ -74,3 +74,54 @@ NoSQL (originalmente "não apenas SQL") fornecem uma alternativa flexível e esc
 * **Escaláveis horizontalmente/mais baratos:** Bancos de dados NoSQL são projetados para escalabilidade horizontal, o que significa que podem escalar adicionando mais servidores a um cluster distribuído em vez de atualizar um único servidor poderoso. Isso é geralmente mais econômico.
 * **A maioria não suporta transações ACID:** Embora alguns bancos de dados NoSQL ofereçam conformidade ACID parcial, muitos priorizam a disponibilidade e a tolerância a partição em detrimento da consistência estrita (seguindo o teorema CAP), o que significa que garantias ACID completas nem sempre são fornecidas em operações distribuídas.
 * **Código aberto:** Um número significativo de bancos de dados NoSQL são projetos de código aberto, o que pode oferecer vantagens de custo e suporte da comunidade.
+
+
+
+# Data Value: Understanding its Nature and Operations (Valor de Dados: Compreendendo sua Natureza e Operações)
+
+In many data storage paradigms, especially key-value stores and various NoSQL databases, data is fundamentally organized into pairs. This document explains the characteristics and common operations associated with the 'value' component of such pairs.
+
+---
+
+## English Version
+
+### Characteristics and Operations of Data Values
+
+A 'value' in data storage is an actual piece of information that is linked to a unique identifier, often referred to as a 'key'.
+
+* **Associated with a key.**
+    * **Explanation:** Every value is inextricably linked to a specific key. This key acts as its unique address or identifier, allowing for efficient retrieval and management of that particular piece of data. Without its associated key, a value cannot be directly accessed or modified in a key-value system.
+
+* **Retrieve, set, delete a value by key.**
+    * **Explanation:** The primary operations performed on values revolve around their keys.
+        * **Retrieve (Read):** To get a value, you typically provide its associated key.
+        * **Set (Create/Update):** To store a new value or update an existing one, you provide the key along with the new value.
+        * **Delete:** To remove a value, you specify its key.
+    These simple, atomic operations make key-value systems highly efficient for specific use cases.
+
+* **Numbers, strings, JSON, images...**
+    * **Explanation:** One of the significant advantages of the 'value' concept, especially in NoSQL systems, is its flexibility regarding data types. A value is essentially schema-less, meaning it can store almost any kind of data. This includes simple data types like numbers and strings, complex structured data like JSON objects, or even unstructured binary data such as images, videos, or entire files. This flexibility contrasts sharply with the rigid schema requirements of traditional relational database columns.
+
+---
+
+## Versão em Português
+
+# Valor de Dados: Compreendendo sua Natureza e Operações
+
+Em muitos paradigmas de armazenamento de dados, especialmente em armazenamentos chave-valor e vários bancos de dados NoSQL, os dados são fundamentalmente organizados em pares. Este documento explica as características e operações comuns associadas ao componente 'valor' de tais pares.
+
+---
+
+## Versão em Português
+
+### Características e Operações de Valores de Dados
+
+Um 'valor' no armazenamento de dados é uma peça real de informação que está ligada a um identificador único, frequentemente referido como 'chave'.
+
+* **Associado a uma chave.**
+    * **Explicação:** Todo valor está intrinsecavelmente ligado a uma chave específica. Essa chave atua como seu endereço ou identificador único, permitindo a recuperação e o gerenciamento eficientes dessa peça de dado em particular. Sem sua chave associada, um valor não pode ser acessado ou modificado diretamente em um sistema chave-valor.
+
+* **Recuperar, definir, excluir um valor por chave.**
+    * **Explicação:** As operações primárias realizadas em valores giram em torno de suas chaves.
+        * **Recuperar (Ler):** Para obter um valor, você tipicamente fornece sua chave associada.
+        * **Definir (Criar/Atualizar):** Para armazen

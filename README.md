@@ -1721,6 +1721,8 @@ Column family databases are a type of NoSQL database designed for wide-column st
 
 ### Understanding the Structure of Column Family Databases
 
+![DataCamp Image](src/famyly_column.png)
+
 Unlike traditional relational databases that organize data into rows, column family databases organize data into rows, but each row can have a flexible and dynamic number of columns grouped into "column families."
 
 * **Row Key:**

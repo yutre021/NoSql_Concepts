@@ -2413,3 +2413,78 @@ Esses cenários apresentam desafios que não são idealmente abordados por banco
     * **Explicação:** Bancos de dados que não suportam nativamente operações `JOIN` (junção) semelhantes a SQL entre diferentes entidades não são adequados para aplicações que dependem frequentemente da combinação de dados de múltiplas tabelas ou coleções relacionadas. Simular junções na camada da aplicação pode ser complexo, ineficiente e lento para consultas complexas, tornando bancos de dados relacionais ou de grafos melhores alternativas.
 * **A fase inicial de um projeto em que será bastante provável que você precise mudar as consultas.**
     * **Explicação:** Bancos de dados que exigem um forte design antecipado baseado em padrões de consulta antecipados (frequentemente o caso com bancos de dados de família de colunas) são menos ideais para prototipagem ou fases iniciais de projeto. Se os requisitos de consulta são fluidos e provavelmente mudarão com frequência, modificar o modelo de dados para reotimizar para novas consultas pode ser custoso e demorado, dificultando a agilidade.
+
+
+# Apache Cassandra: Features and Capabilities (Apache Cassandra: Funcionalidades e Capacidades)
+
+Apache Cassandra is a highly scalable, high-performance, distributed NoSQL database designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure. It is a leading example of a column family database. This document clarifies some key features of Apache Cassandra by assessing various statements as true or false.
+
+---
+
+## English Version
+
+### Understanding Apache Cassandra Features: True or False Statements
+
+Here are some statements clarifying the capabilities and characteristics of Apache Cassandra:
+
+### True Statements:
+
+1.  **Apache Cassandra is offered on the cloud by third-party services.**
+    * **Explanation:** This is **True**. Major cloud providers (like Amazon Web Services with Amazon Keyspaces, Google Cloud with Datastax Astra, or directly through services like Aiven) offer managed Cassandra services. This allows users to deploy and operate Cassandra clusters in the cloud without the overhead of managing the underlying infrastructure, simplifying its adoption.
+
+2.  **We can work with Apache Cassandra while programming in Python.**
+    * **Explanation:** This is **True**. Apache Cassandra provides client drivers for numerous programming languages, including Python. Developers can interact with Cassandra databases using Python libraries (e.g., `cassandra-driver`), allowing them to integrate Cassandra into Python-based applications for data storage and retrieval.
+
+### False Statements:
+
+1.  **As Apache Cassandra is not a relational database, it doesn't use tables with rows and columns.**
+    * **Explanation:** This is **False**. While Apache Cassandra is *not* a relational database and does not use a rigid schema like SQL, it *does* organize data conceptually into tables, rows, and columns. However, its implementation differs significantly:
+        * **Tables:** Referred to as Column Families.
+        * **Rows:** Identified by a Row Key.
+        * **Columns:** Are dynamic and sparse, meaning each row can have different columns.
+    It's a "wide-column" store, not a traditional row-oriented relational database.
+
+2.  **Apache Cassandra scales vertically by adding more nodes.**
+    * **Explanation:** This is **False**. Apache Cassandra scales **horizontally** by adding more nodes. Vertical scaling means increasing resources (CPU, RAM) of a *single* server. Cassandra's architecture is designed for horizontal scaling, allowing you to add more commodity servers (nodes) to a cluster to distribute data and handle increased load, providing massive scalability and high availability.
+
+3.  **CQL stands for Cassandra Quality Layer.**
+    * **Explanation:** This is **False**. **CQL stands for Cassandra Query Language.** It is a SQL-like language used to interact with Cassandra databases, allowing users to define schemas (similar to DDL), insert data (DML), and query data. It was designed to resemble SQL to make it more familiar for developers coming from relational backgrounds, simplifying interaction with Cassandra.
+
+---
+
+## Versão em Português
+
+# Apache Cassandra: Funcionalidades e Capacidades
+
+Apache Cassandra é um banco de dados NoSQL distribuído, altamente escalável e de alto desempenho, projetado para lidar com grandes volumes de dados em muitos servidores comuns, proporcionando alta disponibilidade sem um único ponto de falha. É um exemplo líder de banco de dados de família de colunas. Este documento esclarece algumas funcionalidades chave do Apache Cassandra avaliando várias afirmações como verdadeiras ou falsas.
+
+---
+
+## Versão em Português
+
+### Compreendendo as Funcionalidades do Apache Cassandra: Afirmações Verdadeiras ou Falsas
+
+Aqui estão algumas afirmações que esclarecem as capacidades e características do Apache Cassandra:
+
+### Afirmações Verdadeiras:
+
+1.  **Apache Cassandra é oferecido na nuvem por serviços de terceiros.**
+    * **Explicação:** Esta afirmação é **Verdadeira**. Grandes provedores de nuvem (como Amazon Web Services com Amazon Keyspaces, Google Cloud com Datastax Astra, ou diretamente através de serviços como Aiven) oferecem serviços gerenciados de Cassandra. Isso permite que os usuários implantem e operem clusters Cassandra na nuvem sem a sobrecarga de gerenciar a infraestrutura subjacente, simplificando sua adoção.
+
+2.  **Podemos trabalhar com Apache Cassandra programando em Python.**
+    * **Explicação:** Esta afirmação é **Verdadeira**. Apache Cassandra fornece drivers de cliente para inúmeras linguagens de programação, incluindo Python. Desenvolvedores podem interagir com bancos de dados Cassandra usando bibliotecas Python (ex: `cassandra-driver`), permitindo a integração do Cassandra em aplicações baseadas em Python para armazenamento e recuperação de dados.
+
+### Afirmações Falsas:
+
+1.  **Como Apache Cassandra não é um banco de dados relacional, ele não usa tabelas com linhas e colunas.**
+    * **Explicação:** Esta afirmação é **Falsa**. Embora Apache Cassandra *não* seja um banco de dados relacional e não use um esquema rígido como SQL, ele *organiza* os dados conceitualmente em tabelas, linhas e colunas. No entanto, sua implementação difere significativamente:
+        * **Tabelas:** Referidas como Famílias de Colunas.
+        * **Linhas:** Identificadas por uma Chave de Linha.
+        * **Colunas:** São dinâmicas e esparsas, o que significa que cada linha pode ter colunas diferentes.
+    É um armazenamento de "colunas largas", não um banco de dados relacional tradicional orientado a linhas.
+
+2.  **Apache Cassandra escala verticalmente adicionando mais nós.**
+    * **Explicação:** Esta afirmação é **Falsa**. Apache Cassandra escala **horizontalmente** adicionando mais nós. Escalar verticalmente significa aumentar os recursos (CPU, RAM) de um *único* servidor. A arquitetura do Cassandra é projetada para escalabilidade horizontal, permitindo adicionar mais servidores comuns (nós) a um cluster para distribuir dados e lidar com o aumento da carga, proporcionando escalabilidade massiva e alta disponibilidade.
+
+3.  **CQL significa Cassandra Quality Layer.**
+    * **Explicação:** Esta afirmação é **Falsa**. **CQL significa Cassandra Query Language.** É uma linguagem semelhante a SQL usada para interagir com bancos de dados Cassandra, permitindo aos usuários definir esquemas (semelhante a DDL), inserir dados (DML) e consultar dados. Ela foi projetada para se assemelhar ao SQL para torná-la mais familiar para desenvolvedores vindos de backgrounds relacionais, simplificando a interação com o Cassandra.

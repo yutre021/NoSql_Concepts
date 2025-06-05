@@ -2352,3 +2352,64 @@ Aqui estão algumas afirmações que avaliam a adequação dos bancos de dados d
 
 2.  **Bancos de dados de família de colunas são frequentemente usados ao lidar com pequenos volumes de dados.**
     * **Explicação:** Esta afirmação é **Falsa**. Bancos de dados de família de colunas são otimizados para lidar com *grandes volumes de dados* e escala massiva. Sua complexidade operacional e requisitos de design (ex: necessidade de pensar nas consultas antecipadamente, gerenciamento de distribuição) geralmente os tornam excessivos e menos eficientes para aplicações que lidam com volumes de dados pequenos a médios, onde bancos de dados relacionais ou de documentos mais simples seriam mais apropriados e fáceis de gerenciar.
+
+
+# Database Use Cases: Suitable and Unsuitable Scenarios (Casos de Uso de Banco de Dados: Cenários Adequados e Inadequados)
+
+Choosing the right database for a specific application is crucial for performance, scalability, and maintainability. Different database paradigms excel in different use cases. This document outlines scenarios that are typically well-suited or less suited for databases optimized for high-volume writes, flexible columns, and horizontal scaling (such as column family databases).
+
+---
+
+## English Version
+
+### Suitable Scenarios
+
+These scenarios benefit from databases designed for high write throughput, efficient storage of sparse data, and capabilities for time-series or event logging.
+
+* **The temperature of a place over time.**
+    * **Explanation:** This is a classic example of time-series data. Databases that handle high volumes of data arriving continuously with a timestamp (like temperature readings taken frequently) and allow efficient querying over time ranges are highly suitable. The data often consists of simple records, and the primary access pattern is typically by time or by location and time.
+* **The logging of the errors that are produced in an application.**
+    * **Explanation:** Application error logs generate a continuous stream of events that need to be stored quickly and reliably. Each error entry can have varied attributes (timestamp, error code, message, stack trace, user ID), making flexible-schema databases ideal. The primary operation is to append new logs, and analysis often involves querying by time or specific error types.
+* **The entry of a blog with some tags and comments.**
+    * **Explanation:** Content management systems often involve records with flexible and evolving attributes. A blog entry might have a title, content, author, and dynamic lists of tags and comments. Databases that allow for flexible column definitions and the storage of nested or semi-structured data (like documents or key-value pairs within columns) can efficiently manage such varied content, and are good for high-volume content ingestion.
+
+### Unsuitable Scenarios
+
+These scenarios present challenges that are not ideally addressed by databases optimized for high-volume, append-only data and lacking strong relational capabilities.
+
+* **An application with complex queries that need to join across multiple entities.**
+    * **Explanation:** Databases that do not natively support SQL-like `JOIN` operations across different entities are not suitable for applications that frequently rely on combining data from multiple related tables or collections. Simulating joins at the application level can be complex, inefficient, and slow for complex queries, making relational databases or graph databases better alternatives.
+* **The initial phase of a project in which it will be quite likely that you will need to change the queries.**
+    * **Explanation:** Databases requiring a strong upfront design based on anticipated query patterns (often the case with column family databases) are less ideal for prototyping or early project phases. If query requirements are fluid and likely to change frequently, modifying the data model to re-optimize for new queries can be costly and time-consuming, hindering agility.
+
+---
+
+## Versão em Português
+
+# Casos de Uso de Banco de Dados: Cenários Adequados e Inadequados
+
+Escolher o banco de dados certo para uma aplicação específica é crucial para o desempenho, escalabilidade e manutenibilidade. Diferentes paradigmas de banco de dados se destacam em diferentes casos de uso. Este documento descreve cenários que são tipicamente bem adequados ou menos adequados para bancos de dados otimizados para alto volume de escrita, colunas flexíveis e escalabilidade horizontal (como bancos de dados de família de colunas).
+
+---
+
+## Versão em Português
+
+### Cenários Adequados
+
+Esses cenários se beneficiam de bancos de dados projetados para alto throughput de escrita, armazenamento eficiente de dados esparsos e capacidades para séries temporais ou registro de eventos.
+
+* **A temperatura de um local ao longo do tempo.**
+    * **Explicação:** Este é um exemplo clássico de dados de série temporal. Bancos de dados que lidam com grandes volumes de dados chegando continuamente com um timestamp (como leituras de temperatura tomadas frequentemente) e permitem consultas eficientes sobre intervalos de tempo são altamente adequados. Os dados frequentemente consistem em registros simples, e o padrão de acesso primário é tipicamente por tempo ou por localização e tempo.
+* **O registro de erros produzidos em uma aplicação.**
+    * **Explicação:** Logs de erros de aplicação geram um fluxo contínuo de eventos que precisam ser armazenados de forma rápida e confiável. Cada entrada de erro pode ter atributos variados (timestamp, código de erro, mensagem, stack trace, ID do usuário), tornando bancos de dados de esquema flexível ideais. A operação primária é adicionar novos logs, e a análise frequentemente envolve consultas por tempo ou tipos específicos de erros.
+* **A entrada de um blog com algumas tags e comentários.**
+    * **Explicação:** Sistemas de gerenciamento de conteúdo frequentemente envolvem registros com atributos flexíveis e em evolução. Uma entrada de blog pode ter título, conteúdo, autor e listas dinâmicas de tags e comentários. Bancos de dados que permitem definições de coluna flexíveis e o armazenamento de dados aninhados ou semi-estruturados (como documentos ou pares chave-valor dentro de colunas) podem gerenciar eficientemente tal conteúdo variado, e são bons para ingestão de conteúdo de alto volume.
+
+### Cenários Inadequados
+
+Esses cenários apresentam desafios que não são idealmente abordados por bancos de dados otimizados para alto volume de dados, apenas de adição, e que carecem de fortes capacidades relacionais.
+
+* **Uma aplicação com consultas complexas que precisam unir múltiplas entidades.**
+    * **Explicação:** Bancos de dados que não suportam nativamente operações `JOIN` (junção) semelhantes a SQL entre diferentes entidades não são adequados para aplicações que dependem frequentemente da combinação de dados de múltiplas tabelas ou coleções relacionadas. Simular junções na camada da aplicação pode ser complexo, ineficiente e lento para consultas complexas, tornando bancos de dados relacionais ou de grafos melhores alternativas.
+* **A fase inicial de um projeto em que será bastante provável que você precise mudar as consultas.**
+    * **Explicação:** Bancos de dados que exigem um forte design antecipado baseado em padrões de consulta antecipados (frequentemente o caso com bancos de dados de família de colunas) são menos ideais para prototipagem ou fases iniciais de projeto. Se os requisitos de consulta são fluidos e provavelmente mudarão com frequência, modificar o modelo de dados para reotimizar para novas consultas pode ser custoso e demorado, dificultando a agilidade.

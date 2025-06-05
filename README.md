@@ -668,3 +668,82 @@ Bancos de dados chave-valor são menos eficazes quando a aplicação exige consu
     * **Explicação:** Este tipo de consulta requer busca ou filtragem com base em um atributo dentro do 'valor' (o gênero do filme), em vez de uma busca direta por chave. Armazenamentos chave-valor puros não são otimizados para isso. Embora alguns bancos de dados chave-valor avançados ofereçam índices secundários, esta consulta específica é mais adequada para bancos de dados com capacidades robustas de indexação e consulta, como bancos de dados relacionais ou de documentos.
 * **Uma consulta para obter dados que precisam ser relacionados a outros dados.**
     * **Explicação:** Bancos de dados chave-valor inerentemente não possuem as operações nativas de 'junção' (join) que os bancos de dados relacionais usam para ligar dados entre diferentes tabelas. Se uma aplicação precisa frequentemente combinar informações de múltiplas entidades relacionadas (ex: encontrar todos os pedidos feitos por um cliente específico e, em seguida, listar os itens desses pedidos), um armazenamento chave-valor exigiria lógica complexa em nível de aplicação para simular essas junções, levando à ineficiência e ao aumento da complexidade de desenvolvimento.
+
+
+# Redis: Features and Capabilities (Redis: Funcionalidades e Capacidades)
+
+Redis (Remote Dictionary Server) is an open-source, in-memory data structure store, often used as a database, cache, and message broker. It is known for its speed and versatility, going beyond simple key-value pairs to support various complex data structures and functionalities.
+
+---
+
+## English Version
+
+### Understanding Redis: True or False Statements
+
+Here are some statements clarifying the capabilities and characteristics of Redis:
+
+### True Statements:
+
+1.  **Redis supports hashes.**
+    * **Explanation:** This is **True**. Hashes in Redis are map-like data structures that store fields and their associated values, perfect for representing objects. For example, a user profile can be stored as a hash with fields like 'name', 'email', 'age'. This is one of Redis's powerful data structures beyond simple strings.
+
+2.  **Redis supports adding elements to a list.**
+    * **Explanation:** This is **True**. Redis has native support for Lists, which are ordered collections of strings. You can push elements to the head or tail of a List, pop elements, get elements by index, and perform range operations. This makes it suitable for use cases like message queues, timelines, or activity streams.
+
+3.  **Redis supports Lua scripting.**
+    * **Explanation:** This is **True**. Redis allows users to execute Lua scripts directly on the server. This is highly powerful for performing complex, atomic operations (e.g., multi-key transactions) that combine multiple Redis commands, ensuring that the entire script runs as a single, uninterrupted unit.
+
+4.  **A Redis database can be implemented with AWS (Amazon Web Services).**
+    * **Explanation:** This is **True**. Cloud providers like AWS offer managed Redis services. Amazon ElastiCache for Redis is a popular service that allows users to set up, operate, and scale Redis deployments in the cloud without managing the underlying infrastructure.
+
+### False Statements:
+
+1.  **Unlike relational databases, Redis doesn't support transactions.**
+    * **Explanation:** This is **False**. Redis *does* support transactions. While not the same as ACID transactions in relational databases (it lacks full rollback capabilities in all scenarios and is single-threaded), Redis offers "multi/exec" commands that allow a sequence of commands to be executed atomically as a single, isolated operation, ensuring all commands in the block are executed together without interruption from other clients.
+
+2.  **Redis can only store data in memory.**
+    * **Explanation:** This is **False**. While Redis is primarily an in-memory database, it *does* offer persistence options to prevent data loss upon restarts. It can persist data to disk in two ways:
+        * **RDB (Redis Database):** Point-in-time snapshots of the dataset.
+        * **AOF (Append-Only File):** Logs every write operation received by the server, which can be replayed to reconstruct the dataset.
+    This combination provides a balance between high performance and data durability.
+
+---
+
+## Versão em Português
+
+# Redis: Funcionalidades e Capacidades
+
+Redis (Remote Dictionary Server) é um armazenamento de estrutura de dados em memória de código aberto, frequentemente usado como banco de dados, cache e message broker. É conhecido por sua velocidade e versatilidade, indo além de simples pares chave-valor para suportar várias estruturas de dados complexas e funcionalidades.
+
+---
+
+## Versão em Português
+
+### Compreendendo o Redis: Afirmações Verdadeiras ou Falsas
+
+Aqui estão algumas afirmações que esclarecem as capacidades e características do Redis:
+
+### Afirmações Verdadeiras:
+
+1.  **Redis suporta hashes.**
+    * **Explicação:** Esta afirmação é **Verdadeira**. Hashes no Redis são estruturas de dados semelhantes a mapas que armazenam campos e seus valores associados, perfeitos para representar objetos. Por exemplo, um perfil de usuário pode ser armazenado como um hash com campos como 'nome', 'e-mail', 'idade'. Esta é uma das poderosas estruturas de dados do Redis, além das strings simples.
+
+2.  **Redis suporta adicionar elementos a uma lista.**
+    * **Explicação:** Esta afirmação é **Verdadeira**. O Redis possui suporte nativo para Listas, que são coleções ordenadas de strings. Você pode adicionar elementos ao início ou ao final de uma Lista, remover elementos, obter elementos por índice e realizar operações de intervalo. Isso o torna adequado para casos de uso como filas de mensagens, linhas do tempo ou fluxos de atividade.
+
+3.  **Redis suporta scripting Lua.**
+    * **Explicação:** Esta afirmação é **Verdadeira**. O Redis permite que os usuários executem scripts Lua diretamente no servidor. Isso é extremamente poderoso para realizar operações atômicas complexas (ex: transações multi-chave) que combinam múltiplos comandos Redis, garantindo que todo o script seja executado como uma única unidade ininterrupta.
+
+4.  **Um banco de dados Redis pode ser implementado com AWS (Amazon Web Services).**
+    * **Explicação:** Esta afirmação é **Verdadeira**. Provedores de nuvem como a AWS oferecem serviços Redis gerenciados. Amazon ElastiCache for Redis é um serviço popular que permite aos usuários configurar, operar e escalar implantações Redis na nuvem sem gerenciar a infraestrutura subjacente.
+
+### Afirmações Falsas:
+
+1.  **Ao contrário dos bancos de dados relacionais, o Redis não suporta transações.**
+    * **Explicação:** Esta afirmação é **Falsa**. O Redis *suporta* transações. Embora não sejam as mesmas transações ACID de bancos de dados relacionais (ele carece de recursos completos de rollback em todos os cenários e é single-threaded), o Redis oferece comandos "multi/exec" que permitem que uma sequência de comandos seja executada atomicamente como uma única operação isolada, garantindo que todos os comandos no bloco sejam executados juntos sem interrupção de outros clientes.
+
+2.  **Redis só pode armazenar dados em memória.**
+    * **Explicação:** Esta afirmação é **Falsa**. Embora o Redis seja principalmente um banco de dados em memória, ele *oferece* opções de persistência para evitar a perda de dados em caso de reinicializações. Ele pode persistir dados em disco de duas maneiras:
+        * **RDB (Redis Database):** Snapshots pontuais do conjunto de dados.
+        * **AOF (Append-Only File):** Registra cada operação de gravação recebida pelo servidor, que pode ser reproduzida para reconstruir o conjunto de dados.
+    Esta combinação fornece um equilíbrio entre alto desempenho e durabilidade dos dados.

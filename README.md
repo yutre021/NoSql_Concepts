@@ -3046,3 +3046,70 @@ Aqui estão algumas afirmações que avaliam a adequação dos bancos de dados d
 
 2.  **Bancos de dados de grafo não são a melhor opção para representar os relacionamentos entre os funcionários de uma empresa.**
     * **Explicação:** Esta afirmação é **Falsa**. Bancos de dados de grafo são **uma excelente opção** para representar relacionamentos entre funcionários. Estruturas organizacionais, estruturas de subordinação ("reporta a"), participações em equipes de projeto, relacionamentos de habilidades ("conhece") e redes de colaboração são todos inerentemente semelhantes a grafos. Um banco de dados de grafo pode modelar facilmente essas conexões, permitindo consultas poderosas como encontrar todos os funcionários supervisionados por um gerente específico, identificar colaboradores entre departamentos ou analisar padrões de comunicação internos.
+
+
+# Neo4j: Features and Capabilities (Neo4j: Funcionalidades e Capacidades)
+
+Neo4j is a leading native graph database, renowned for its efficiency in handling highly connected data and complex relationships. It implements the Labelled Property Graph model, where data is stored as nodes, relationships (edges), and properties on both. This document clarifies some key features and common uses of Neo4j.
+
+---
+
+## English Version
+
+### Understanding Neo4j: True or False Statements
+
+Here are some statements clarifying the capabilities and characteristics of Neo4j:
+
+### True Statements:
+
+1.  **The Neo4j community has also contributed to developing drivers for some programming languages.**
+    * **Explanation:** This is **True**. Neo4j has a strong and active open-source community that plays a significant role in its ecosystem. This community, alongside Neo4j Inc., contributes to the development and maintenance of official and community-supported drivers for various programming languages, making it accessible to a wide range of developers.
+
+2.  **One of Neo4j's uses is real-time recommendations.**
+    * **Explanation:** This is **True**. Neo4j is exceptionally well-suited for real-time recommendation engines. Its ability to quickly traverse complex relationships (e.g., "users who bought X also bought Y," "friends of friends") allows it to generate highly relevant and personalized recommendations with low latency, a critical feature for e-commerce, media, and social platforms.
+
+3.  **We can work with Neo4j while programming in Python.**
+    * **Explanation:** This is **True**. Neo4j provides official drivers for several popular programming languages, including Python. Developers can use the Neo4j Python driver to connect to a Neo4j database, execute Cypher queries (Neo4j's query language), and integrate graph data operations directly into their Python applications.
+
+### False Statements:
+
+1.  **One of Neo4j's uses is user profile attributes.**
+    * **Explanation:** This is **False**. While Neo4j can store *user profile attributes* (as properties on user nodes), its *primary and most distinguishing use* is to manage and query the *relationships* between users and other entities (e.g., "User A follows User B," "User C likes Product D"). Storing simple attributes is common to all databases; Neo4j's unique value comes from its ability to handle complex connections.
+
+2.  **With Neo4j, it is not possible to run multiple queries within the same transaction.**
+    * **Explanation:** This is **False**. Neo4j fully supports **ACID transactions**, allowing multiple queries (reads and writes) to be grouped and executed atomically within a single transaction. This means that all operations within a transaction either succeed completely or fail completely, ensuring data integrity, especially in concurrent environments. Developers explicitly define the start and end of these transactions.
+
+---
+
+## Versão em Português
+
+# Neo4j: Funcionalidades e Capacidades
+
+Neo4j é um banco de dados de grafo nativo líder, conhecido por sua eficiência em lidar com dados altamente conectados e relacionamentos complexos. Ele implementa o modelo de Grafo de Propriedades Rotuladas, onde os dados são armazenados como nós, relacionamentos (arestas) e propriedades em ambos. Este documento esclarece algumas funcionalidades chave e usos comuns do Neo4j.
+
+---
+
+## Versão em Português
+
+### Compreendendo o Neo4j: Afirmações Verdadeiras ou Falsas
+
+Aqui estão algumas afirmações que esclarecem as capacidades e características do Neo4j:
+
+### Afirmações Verdadeiras:
+
+1.  **A comunidade Neo4j também contribuiu para desenvolver drivers para algumas linguagens de programação.**
+    * **Explicação:** Esta afirmação é **Verdadeira**. O Neo4j possui uma comunidade de código aberto forte e ativa que desempenha um papel significativo em seu ecossistema. Essa comunidade, juntamente com a Neo4j Inc., contribui para o desenvolvimento e manutenção de drivers oficiais e suportados pela comunidade para várias linguagens de programação, tornando-o acessível a uma ampla gama de desenvolvedores.
+
+2.  **Um dos usos do Neo4j é recomendações em tempo real.**
+    * **Explicação:** Esta afirmação é **Verdadeira**. O Neo4j é excepcionalmente adequado para motores de recomendação em tempo real. Sua capacidade de atravessar rapidamente relacionamentos complexos (ex: "usuários que compraram X também compraram Y", "amigos de amigos") permite que ele gere recomendações altamente relevantes e personalizadas com baixa latência, uma característica crítica para e-commerce, mídia e plataformas sociais.
+
+3.  **Podemos trabalhar com Neo4j programando em Python.**
+    * **Explicação:** Esta afirmação é **Verdadeira**. O Neo4j oferece drivers oficiais para várias linguagens de programação populares, incluindo Python. Desenvolvedores podem usar o driver Python do Neo4j para conectar-se a um banco de dados Neo4j, executar consultas Cypher (linguagem de consulta do Neo4j) e integrar operações de dados de grafo diretamente em suas aplicações Python.
+
+### Afirmações Falsas:
+
+1.  **Um dos usos do Neo4j são os atributos do perfil de usuário.**
+    * **Explicação:** Esta afirmação é **Falsa**. Embora o Neo4j possa armazenar *atributos de perfil de usuário* (como propriedades em nós de usuário), seu *uso primário e mais distintivo* é gerenciar e consultar os *relacionamentos* entre usuários e outras entidades (ex: "Usuário A segue Usuário B", "Usuário C curte Produto D"). Armazenar atributos simples é comum a todos os bancos de dados; o valor único do Neo4j vem de sua capacidade de lidar com conexões complexas.
+
+2.  **Com o Neo4j, não é possível executar múltiplas consultas dentro da mesma transação.**
+    * **Explicação:** Esta afirmação é **Falsa**. O Neo4j suporta totalmente **transações ACID**, permitindo que múltiplas consultas (leituras e gravações) sejam agrupadas e executadas atomicamente dentro de uma única transação. Isso significa que todas as operações dentro de uma transação ou são concluídas completamente ou falham completamente, garantindo a integridade dos dados, especialmente em ambientes concorrentes. Desenvolvedores definem explicitamente o início e o fim dessas transações.

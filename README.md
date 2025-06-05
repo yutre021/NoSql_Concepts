@@ -540,3 +540,70 @@ Aqui estão algumas afirmações para esclarecer ainda mais as funcionalidades e
     * **Explicação:** Esta afirmação é **Falsa**. A operação `Get` é estritamente para *recuperar* um valor associado a uma dada chave. A operação que insere um novo par chave-valor ou atualiza um existente é tipicamente chamada de `Put` ou `Set`.
 * **Bancos de dados chave-valor podem escalar verticalmente usando sharding.**
     * **Explicação:** Esta afirmação é **Falsa**. Sharding é uma técnica para escalabilidade *horizontal*, que significa distribuir dados por múltiplas máquinas. A escalabilidade vertical envolve a atualização dos recursos (CPU, RAM, armazenamento) de uma *única* máquina. Bancos de dados chave-valor se destacam na escalabilidade horizontal, tornando a escalabilidade vertical menos necessária ou eficiente para o crescimento.
+
+
+# Key-Value Databases: Appropriate Use Cases (Bancos de Dados Chave-Valor: Casos de Uso Apropriados)
+
+Key-value databases are a type of NoSQL database that excels in specific scenarios due to their simple data model, high performance, and scalability. This document clarifies common use cases and limitations for key-value stores.
+
+---
+
+## English Version
+
+### Understanding Key-Value Database Applications: True or False Statements
+
+Here are some statements to classify the suitability of key-value databases for various applications:
+
+### True Statements:
+
+1.  **Key-value databases are suitable for user sessions.**
+    * **Explanation:** This is **True**. User session management (storing temporary user data like login status, shopping cart contents, or personalized settings) is a classic use case for key-value databases. Their fast read/write speeds and simple key-based access make them highly efficient for storing and retrieving session data, which is often short-lived and does not require complex querying.
+
+2.  **Key-value databases are not suitable when there is a need to search a key based on its value.**
+    * **Explanation:** This is **True**. The fundamental design of a pure key-value store is to retrieve a value *by its key*. They are not optimized for searching *through* values to find a key. While some advanced key-value databases offer secondary indexes to mitigate this, it's not their primary strength, and if value-based searching is a core requirement, other database types (like document or relational) might be more suitable.
+
+3.  **Key-value databases are suitable for making recommendations in real-time.**
+    * **Explanation:** This is **True**. For real-time recommendation engines (e.g., "users who bought this also bought..."), quickly fetching pre-computed recommendations or user preferences is critical. Key-value stores, with their incredibly fast lookups and high throughput, are excellent for serving these recommendations with very low latency.
+
+### False Statements:
+
+1.  **Key-value databases are not suitable for storing user-profiles and user preferences.**
+    * **Explanation:** This is **False**. Key-value databases are **highly suitable** for storing user profiles and preferences. Each user's ID can serve as the key, and their profile (including preferences) can be stored as a single, flexible value (e.g., a JSON document). This allows for quick retrieval of a user's entire profile and easy modification of attributes without strict schema constraints.
+
+2.  **Key-value databases are suitable for searching related data.**
+    * **Explanation:** This is **False**. Key-value databases are *not* inherently suitable for complex searches involving relationships between different pieces of data. They lack the native join capabilities of relational databases or the graph traversal features of graph databases. While application logic can simulate relationships, it's generally inefficient for data that is frequently queried based on complex relationships between disparate records.
+
+---
+
+## Versão em Português
+
+# Bancos de Dados Chave-Valor: Casos de Uso Apropriados
+
+Bancos de dados chave-valor são um tipo de banco de dados NoSQL que se destaca em cenários específicos devido ao seu modelo de dados simples, alto desempenho e escalabilidade. Este documento esclarece casos de uso comuns e limitações para armazenamentos chave-valor.
+
+---
+
+## Versão em Português
+
+### Compreendendo as Aplicações de Bancos de Dados Chave-Valor: Afirmações Verdadeiras ou Falsas
+
+Aqui estão algumas afirmações para classificar a adequação de bancos de dados chave-valor para várias aplicações:
+
+### Afirmações Verdadeiras:
+
+1.  **Bancos de dados chave-valor são adequados para sessões de usuário.**
+    * **Explicação:** Esta afirmação é **Verdadeira**. O gerenciamento de sessões de usuário (armazenar dados temporários do usuário, como status de login, conteúdo do carrinho de compras ou configurações personalizadas) é um caso de uso clássico para bancos de dados chave-valor. Suas velocidades rápidas de leitura/gravação e acesso baseado em chave simples os tornam altamente eficientes para armazenar e recuperar dados de sessão, que geralmente são de curta duração e não exigem consultas complexas.
+
+2.  **Bancos de dados chave-valor não são adequados quando há necessidade de buscar uma chave com base em seu valor.**
+    * **Explicação:** Esta afirmação é **Verdadeira**. O design fundamental de um armazenamento chave-valor puro é recuperar um valor *pela sua chave*. Eles não são otimizados para buscar *através* dos valores para encontrar uma chave. Embora alguns bancos de dados chave-valor avançados ofereçam índices secundários para mitigar isso, não é sua força principal, e se a busca baseada em valor for um requisito central, outros tipos de banco de dados (como documento ou relacional) podem ser mais adequados.
+
+3.  **Bancos de dados chave-valor são adequados para fazer recomendações em tempo real.**
+    * **Explicação:** Esta afirmação é **Verdadeira**. Para motores de recomendação em tempo real (ex: "usuários que compraram isso também compraram..."), buscar rapidamente recomendações pré-calculadas ou preferências de usuário é crítico. Armazenamentos chave-valor, com suas buscas incrivelmente rápidas e alto throughput, são excelentes para servir essas recomendações com latência muito baixa.
+
+### Afirmações Falsas:
+
+1.  **Bancos de dados chave-valor não são adequados para armazenar perfis de usuário e preferências de usuário.**
+    * **Explicação:** Esta afirmação é **Falsa**. Bancos de dados chave-valor são **altamente adequados** para armazenar perfis de usuário e preferências de usuário. O ID de cada usuário pode servir como a chave, e seu perfil (incluindo preferências) pode ser armazenado como um único valor flexível (ex: um documento JSON). Isso permite a recuperação rápida do perfil completo de um usuário e a fácil modificação de atributos sem restrições rígidas de esquema.
+
+2.  **Bancos de dados chave-valor são adequados para buscar dados relacionados.**
+    * **Explicação:** Esta afirmação é **Falsa**. Bancos de dados chave-valor *não* são inerentemente adequados para buscas complexas que envolvem relacionamentos entre diferentes partes dos dados. Eles não possuem as capacidades nativas de junção de bancos de dados relacionais ou os recursos de travessia de grafos de bancos de dados de grafos. Embora a lógica da aplicação possa simular relacionamentos, isso geralmente é ineficiente para dados que são frequentemente consultados com base em relacionamentos complexos entre registros díspares.
